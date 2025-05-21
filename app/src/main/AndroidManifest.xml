@@ -13,20 +13,14 @@
         android:theme="@style/Theme.Web"
         tools:targetApi="31">
         <activity
-            android:name=".ViewActivity"
+            android:name=".AlignActivity"
             android:exported="false" />
         <activity
-            android:name=".Info"
-            android:exported="false"
-            android:label="Date/Time"
-            android:theme="@style/Theme.Web">
-            <intent-filter>
-                <action android:name="ru.startandroid.intent.action.showtime" />
-                <action android:name="ru.startandroid.intent.action.showdate" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
+            android:name=".Colors"
+            android:exported="false" />
+        <activity
+            android:name=".ViewActivity"
+            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -1,16 +1,21 @@
 package com.example.web
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
+import android.view.View.OnClickListener
+import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 
-class ViewActivity : AppCompatActivity() {
+class ViewActivity : AppCompatActivity(), OnClickListener {
+    lateinit var etName: EditText
+    lateinit var btnOK: Button
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,13 +27,15 @@ class ViewActivity : AppCompatActivity() {
             insets
         }
 
-        val tvView = findViewById<View>(R.id.tvView) as TextView
+        etName = findViewById(R.id.etName)
+        btnOK = findViewById(R.id.btnOK)
+        btnOK.setOnClickListener(this)
+    }
 
-        val intent = intent
-
-        val fName = intent.getStringExtra("fname")
-        val lName = intent.getStringExtra("lname")
-
-        tvView.setText("Your name is: $fName $lName")
+    override fun onClick(v: View?) {
+        val intent = Intent()
+        intent.putExtra("name", etName.getText().toString())
+        setResult(RESULT_OK, intent)
+        finish()
     }
 }
